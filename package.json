@@ -1,0 +1,10 @@
+{
+  "name": "annapurna-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix ./canteen-app run dev",
+    "start": "npm --prefix ./canteen-app start",
+    "build": "npm --prefix ./canteen-app run build",
+    "test": "npm --prefix ./canteen-app test"
+  }
+}

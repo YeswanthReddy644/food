@@ -1,0 +1,26 @@
+.wa-widget {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(37,211,102,0.18);
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.wa-widget:hover { transform: translateY(-2px); }
+
+.wa-widget svg { flex: 0 0 22px; }
+.wa-text { font-weight: 600; font-size: 14px; display: inline-block }
+
+@media (max-width: 520px) {
+  .wa-text { display: none }
+  .wa-widget { padding: 10px }
+}
