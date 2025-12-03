@@ -28,8 +28,8 @@ export const ConfirmProvider = ({ children }) => {
     });
   }, []);
 
-  const handleClose = (result) => {
-    const { rememberKey } = state;
+  const handleClose = useCallback((result) => {
+    const rememberKey = state && state.rememberKey;
     if (result && rememberKey && rememberChecked) {
       try { localStorage.setItem(rememberKey, 'true'); } catch (e) {}
     }
@@ -38,7 +38,7 @@ export const ConfirmProvider = ({ children }) => {
       resolverRef.current(result);
       resolverRef.current = null;
     }
-  };
+  }, [rememberChecked, state && state.rememberKey]);
 
   // Accessibility: focus management and Escape key handling
   useEffect(() => {
@@ -60,7 +60,7 @@ export const ConfirmProvider = ({ children }) => {
     }, 0);
 
     return () => document.removeEventListener('keydown', onKey);
-  }, [state.open]);
+  }, [state.open, handleClose]);
 
   return (
     <ConfirmContext.Provider value={{ confirm }}>

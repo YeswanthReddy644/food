@@ -83,7 +83,15 @@ function Header() {
             display: 'inline-block',
           };
 
-          // show the same styled control whether role exists or not
+          // if owner is logged in show a logout button, otherwise Owner Login
+          if (role === 'owner') {
+            return (
+              <button onClick={handleLogout} style={btnStyle}>
+                Logout
+              </button>
+            );
+          }
+
           return (
             <Link to="/owner-login" style={btnStyle}>
               Owner Login
